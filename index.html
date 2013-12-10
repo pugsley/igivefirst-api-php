@@ -1,76 +1,695 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Igivefirst-api-php by iGivefirst</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="iGivefirst API - PHP SDK : PHP SDK for iGivefirst Giving Platform" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>iGivefirst API - PHP SDK</title>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>Igivefirst-api-php</h1>
-          <h2>PHP API for iGivefirst Giving Platform</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/iGivefirst/igivefirst-api-php">View on GitHub</a>
+
+          <h1 id="project_title">iGivefirst API - PHP SDK</h1>
+          <h2 id="project_tagline">PHP SDK for iGivefirst Giving Platform</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/iGivefirst/igivefirst-api-php/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/iGivefirst/igivefirst-api-php/tarball/master">Download this project as a tar.gz file</a>
+            </section>
         </header>
+    </div>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/iGivefirst/igivefirst-api-php/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/iGivefirst/igivefirst-api-php/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/iGivefirst/igivefirst-api-php" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="igivefirst-php-sdk" class="anchor" href="#igivefirst-php-sdk"><span class="octicon octicon-link"></span></a>iGivefirst PHP SDK</h1>
 
-        <hr>
+<p>This project contains the PHP SDK for the iGivefirst Donation API. It is distributed as a Composer package for easy access.</p>
 
-        <section id="main_content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<h2>
+<a name="sample-usage" class="anchor" href="#sample-usage"><span class="octicon octicon-link"></span></a>Sample Usage</h2>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+
+<span class="nv">$nonprofit_campaign</span> <span class="o">=</span> <span class="s1">'1e9a8366-1060-4b45-9874-95039ec217c6'</span><span class="p">;</span>
+<span class="nv">$publisher_campaign</span> <span class="o">=</span> <span class="s1">'b93babc1-9557-4271-a065-43b29f04c2fb'</span><span class="p">;</span>
+
+<span class="nv">$igf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">iGivefirst</span><span class="p">(</span><span class="nx">API_KEY</span><span class="p">,</span> <span class="nx">API_SECRET</span><span class="p">);</span>
+
+<span class="c1">// Create a new Donor</span>
+<span class="nv">$donor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DonorInfo</span><span class="p">();</span>
+<span class="nv">$donor</span><span class="o">-&gt;</span><span class="na">setUser</span><span class="p">(</span><span class="nb">time</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'@igivefirst.mobi'</span><span class="p">);</span>
+<span class="nv">$donor</span><span class="o">-&gt;</span><span class="na">bind</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'firstName'</span><span class="o">=&gt;</span><span class="s1">'John'</span><span class="p">,</span> <span class="s1">'lastName'</span><span class="o">=&gt;</span><span class="s1">'Doe'</span><span class="p">,</span> <span class="s1">'billingAddress1'</span> <span class="o">=&gt;</span> <span class="s1">'123 Candy Lane'</span><span class="p">,</span> <span class="s1">'city'</span> <span class="o">=&gt;</span> <span class="s1">'Imaginary'</span><span class="p">,</span> <span class="s1">'state'</span> <span class="o">=&gt;</span> <span class="s1">'CA'</span><span class="p">,</span> <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'usa'</span><span class="p">,</span> <span class="s1">'zip'</span> <span class="o">=&gt;</span> <span class="s1">'11111'</span><span class="p">));</span>
+
+<span class="nv">$donor_data</span> <span class="o">=</span> <span class="nv">$igf</span><span class="o">-&gt;</span><span class="na">donor</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$donor</span><span class="p">);</span>
+
+<span class="c1">// Create a new Account for the Donor we just created</span>
+<span class="nv">$account</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccountInfo</span><span class="p">();</span>
+<span class="nv">$account</span><span class="o">-&gt;</span><span class="na">setCreditCard</span><span class="p">(</span><span class="s1">'4111111111111111'</span><span class="p">,</span> <span class="s1">'124'</span><span class="p">,</span> <span class="s1">'02'</span><span class="p">,</span> <span class="s1">'2023'</span><span class="p">);</span>
+<span class="nv">$account</span><span class="o">-&gt;</span><span class="na">setDonorInformation</span><span class="p">(</span><span class="nv">$donor_data</span><span class="p">[</span><span class="s1">'guid'</span><span class="p">],</span> <span class="k">array</span><span class="p">(</span><span class="s1">'billingAddress1'</span> <span class="o">=&gt;</span> <span class="s1">'123 Candy Lane'</span><span class="p">,</span> <span class="s1">'billingCity'</span> <span class="o">=&gt;</span> <span class="s1">'Imaginary'</span><span class="p">,</span> <span class="s1">'billingState'</span> <span class="o">=&gt;</span> <span class="s1">'CA'</span><span class="p">,</span> <span class="s1">'billingZip'</span> <span class="o">=&gt;</span> <span class="s1">'11111'</span><span class="p">));</span>
+
+<span class="nv">$account_data</span> <span class="o">=</span> <span class="nv">$igf</span><span class="o">-&gt;</span><span class="na">account</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
+
+<span class="c1">// Now create a donation. We've already picked out our nonprofit and publisher campaigns.</span>
+<span class="nv">$donation</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DonationInfo</span><span class="p">();</span>
+<span class="nv">$donation</span><span class="o">-&gt;</span><span class="na">setDonation</span><span class="p">(</span><span class="s1">'40.11'</span><span class="p">,</span> <span class="nv">$nonprofit_campaign</span><span class="p">,</span> <span class="nv">$publisher_campaign</span><span class="p">,</span> <span class="nv">$account_data</span><span class="p">[</span><span class="s1">'guid'</span><span class="p">],</span> <span class="nv">$donor_data</span><span class="p">[</span><span class="s1">'guid'</span><span class="p">]);</span>
+
+<span class="nv">$donation_data</span> <span class="o">=</span> <span class="nv">$igf</span><span class="o">-&gt;</span><span class="na">donation</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$donation</span><span class="p">);</span>
+
+<span class="c1">// Finally, we can inspect the donation we just posted</span>
+<span class="nv">$donation</span> <span class="o">=</span> <span class="nv">$igf</span><span class="o">-&gt;</span><span class="na">donation</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$donation_data</span><span class="p">[</span><span class="s1">'guid'</span><span class="p">]);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$donation</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+<h1>
+<a name="igivefirst-rest-donation-api" class="anchor" href="#igivefirst-rest-donation-api"><span class="octicon octicon-link"></span></a>iGivefirst REST Donation API</h1>
+
+<p><strong>In order to use the iGivefirst Donation API, you must be PCI level 1 compliant</strong></p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>In order to use the iGivefirst Donation API, you will first need to register as a publisher on our website.</p>
+
+<ol>
+<li>
+<strong><em>SDK prequesites</em></strong> - in order to use the PHP SDK you will need the cURL extension compiled with OpenSSL support</li>
+<li>
+<strong><em>Register as a publisher</em></strong> - sign up at <a href="">https://www.igivefirst.mobi/join/publisher</a>
+</li>
+<li>
+<strong><em>Request access</em></strong> - send an email to <a href="mailto:support@igivefirst.com">support@igivefirst.com</a> with your account information and we'll get you set up for access</li>
+<li>
+<strong><em>Configure API keys</em></strong> - visit the API page <a href="">https://www.igivefirst.mobi/publisher/donation-api</a> to get your API keys and configure whitelisted IP addresses.</li>
+</ol><h2>
+<a name="guids" class="anchor" href="#guids"><span class="octicon octicon-link"></span></a>Guids</h2>
+
+<p>Our API utizes business keys in the form of standard 36 character guids.  These guids are created with-in our system and are unique.  The main guids that are utilized:</p>
+
+<ul>
+<li>Nonprofit Campaign Guid - This is the guid representation of a campaign setup by a nonprofit.  This guid is accessible through the ad serving api, and is used by virtually all api calls.</li>
+<li>Publisher Campaign Guid - This is the guid that is created when a publisher campaign is created.  Again this guid is used with virtually every call.</li>
+<li>Donor Guid - This is the unique id for a donor</li>
+<li>Donor Account Guid  - In order to call our API to process a donor donation a donor account guid is utilized.</li>
+</ul><h2>
+<a name="secure-rest-donation-api" class="anchor" href="#secure-rest-donation-api"><span class="octicon octicon-link"></span></a>Secure Rest Donation API</h2>
+
+<h3>
+<a name="obtaining-a-private-key" class="anchor" href="#obtaining-a-private-key"><span class="octicon octicon-link"></span></a>Obtaining a private key</h3>
+
+<p>Login as your publisher and click on the api link on the bottom left.  From there you will be able to access all of the 
+above guids mentioned.  This also includes the two keys that are used to secure our system:</p>
+
+<ul>
+<li>Publisher API Key</li>
+<li>Publisher Secret Key</li>
+</ul><h3>
+<a name="authenticating-requests-using-rest-api" class="anchor" href="#authenticating-requests-using-rest-api"><span class="octicon octicon-link"></span></a>Authenticating requests using Rest API</h3>
+
+<p>Authenticating Requests Using the REST API</p>
+
+<p>When accessing iGivefirst API using REST , you must provide the following items in your request so the request can be authenticated:</p>
+
+<h4>
+<a name="request-elements" class="anchor" href="#request-elements"><span class="octicon octicon-link"></span></a>Request Elements</h4>
+
+<ul>
+<li>Publisher API Key - It is the access key id of the identity you are using to send your request.</li>
+<li>Signature — Each request must contain a valid request signature, or the request is rejected.  A request signature is calculated using your Publisher Secret Key, which is a shared secret known only to you and iGivefirst.</li>
+<li>Time stamp — Each request must contain the date and time the request was created, represented as a string in UTC. An example of the timestamp is: Thu, 18 Nov 2010 11:27:35 GMT.  This timestamp must match the
+accompanying HTTP Date Header</li>
+</ul><h5>
+<a name="authorization" class="anchor" href="#authorization"><span class="octicon octicon-link"></span></a>Authorization</h5>
+
+<p>The iGivefirst REST API uses the standard HTTPAuthorization header to pass authentication information.<br>
+The following is an example of the header:</p>
+
+<ul>
+<li>Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg= </li>
+</ul><p>The header consists of the Publisher API Key concatenated with the Signature. </p>
+
+<ul>
+<li>Authorization type - IGF_HMAC_SHA1</li>
+<li>iGivefirst API Key - 59e680df-df0a-42c3-969a-800d35ca5684</li>
+<li>Signature - frJIUN8DYpKDtOLCwo//yllqDzg=</li>
+</ul><p>The Signature computed from Base64( HMAC-SHA1( UTF-8-Encoded( StringToSign ), PublisherSecret ) ) where</p>
+
+<pre>
+StringToSign = 
+    HTTPVerb + "\n" 
+    MD5-HASH-OF-Content + "\n" +
+    Content-Type + "\n" +
+    Timestamp + "\n" + 
+    CanonicalizedResourceURI
+</pre>
+
+<p>An Example of the StringToSign</p>
+
+<pre>
+POST\n
+bc1153d10db6079ecfbe3c3dca023402\n
+application/json\n
+Thu, 15 Sep 2012 00:51:48 GMT\n
+/donation
+</pre>
+
+<p>or</p>
+
+<pre>
+GET\n
+\n
+\n
+Thu, 15 Sep 2012 00:51:48 GMT\n
+/donation/5def4c5f-e318-471f-9ef7-05cc965233cd
+</pre>
+
+<p>or </p>
+
+<pre>
+DELETE\n
+\n
+\n
+Thu, 15 Sep 2012 00:51:48 GMT\n
+/donation/5def4c5f-e318-471f-9ef7-05cc965233cd
+</pre>
+
+<p>The StringToSign is then used to build the Signature by</p>
+
+<ol>
+<li>UTF-8 encoding the StringToSign</li>
+<li>Calculating the HMAC-SHA1 of the StringToSign using your secret key</li>
+<li>Base64 encoding the resulting hash bytes, excluding any hex encoding of the hash</li>
+</ol><p>Once you have your Signature you create the Authorization header by contenating your Access Key and the Signature:</p>
+
+<p>Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=</p>
+
+<h4>
+<a name="white-listed-ip-addresses" class="anchor" href="#white-listed-ip-addresses"><span class="octicon octicon-link"></span></a>White Listed IP Addresses</h4>
+
+<p>The production system only communicates to the IP addresses that you have listed during the setup of the API key.</p>
+
+<h3>
+<a name="donation-api-endpoint" class="anchor" href="#donation-api-endpoint"><span class="octicon octicon-link"></span></a>Donation API Endpoint</h3>
+
+<p>The donation api is used to create, get or delete a donation.  </p>
+
+<h4>
+<a name="headers-used" class="anchor" href="#headers-used"><span class="octicon octicon-link"></span></a>Headers Used</h4>
+
+<ul>
+<li>Content Type: application/json</li>
+<li>Accepts: application/json (where applicable)</li>
+<li>Date: Thu, 15 Sep 2012 00:51:48 GMT</li>
+<li>Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=</li>
+</ul><h4>
+<a name="http-verbs" class="anchor" href="#http-verbs"><span class="octicon octicon-link"></span></a>HTTP Verbs</h4>
+
+<h5>
+<a name="get---get-a-donation" class="anchor" href="#get---get-a-donation"><span class="octicon octicon-link"></span></a>GET - Get a donation</h5>
+
+<ul>
+<li>URI - /donation/:guid</li>
+<li>RETURNS - full json donation object which includes optional fields such as nonprofit name</li>
+<li>SUCCESS CODE - 200</li>
+<li>ERROR CODES 
+
+<ul>
+<li>500 input error</li>
+<li>404 no donation found by that guid</li>
+</ul>
+</li>
+</ul><p>Example</p>
+
+<pre><code>GET /donation/59e680df-df0a-42c3-969a-800d35ca5684
+Accepts: application/json
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Response</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+  <span class="nt">"guid"</span>                      <span class="p">:</span>   <span class="s2">"59e680df-df0a-42c3-969a-800d35ca5684"</span><span class="p">,</span>
+  <span class="nt">"amount"</span>                    <span class="p">:</span>   <span class="mf">42.80</span><span class="p">,</span>
+  <span class="nt">"sponsorMatchingPercentage"</span> <span class="p">:</span>   <span class="mi">20</span><span class="p">,</span> <span class="err">//</span> <span class="err">optional</span>
+  <span class="nt">"nonProfitCampaignGuid"</span>     <span class="p">:</span>   <span class="s2">"8aec529c-dc93-4e5a-a02d-2965f16d327e"</span><span class="p">,</span>
+  <span class="nt">"publisherCampaignGuid"</span>     <span class="p">:</span>   <span class="s2">"59e680df-df0a-42c3-969a-800d35ca5684"</span><span class="p">,</span>
+  <span class="nt">"sponsorCampaignGuid"</span>       <span class="p">:</span>   <span class="s2">"ca712410-8e11-46a5-872c-de8ba7744e42"</span><span class="p">,</span> <span class="err">//</span> <span class="err">optional</span>
+  <span class="nt">"publisherTransactionId"</span>    <span class="p">:</span>   <span class="s2">"42"</span><span class="p">,</span>  <span class="err">//</span> <span class="err">optional</span> <span class="err">provided</span> <span class="err">by</span> <span class="err">publisher</span>
+  <span class="nt">"donorGuid"</span>                 <span class="p">:</span>   <span class="s2">"ca712410-8e11-46a5-872c-de8ba7744e42"</span><span class="p">,</span>
+  <span class="nt">"status"</span>                    <span class="p">:</span> <span class="s2">"NON_PROFIT_PAID"</span><span class="p">,</span> <span class="err">//</span> <span class="err">various</span> <span class="err">status</span> <span class="err">codes</span> <span class="err">-</span> <span class="err">PENDING_BATCH,</span> <span class="err">PUBLISHER_BATCH_COMPLETED,</span> <span class="err">PUBLISHER_PAYMENT_ERROR,</span> <span class="err">NONPROFIT_PAID,</span> <span class="err">NONPROFIT_PAYMENT_ERROR,</span> <span class="err">ON_HOLD,</span> <span class="err">CANCELLED,</span> <span class="err">EXCEPTION</span>
+  <span class="nt">"dateCreated"</span>               <span class="p">:</span>   <span class="s2">"2013-02-14:14:23:00Z"</span><span class="p">,</span> <span class="err">//</span> <span class="err">ISO</span> <span class="err">3602</span> <span class="err">timestamp</span> <span class="err">YYYY-MM-DDThh:mmZ</span> <span class="err">GMT</span>
+  <span class="nt">"publiserName"</span><span class="p">:</span>        <span class="p">:</span> <span class="s2">"Publisher Name"</span><span class="p">,</span>
+  <span class="nt">"nonProfitName"</span><span class="p">:</span>       <span class="p">:</span> <span class="s2">"Hobbit's for Humanity"</span><span class="p">,</span>
+  <span class="nt">"sponsorName"</span> <span class="p">:</span>        <span class="p">:</span> <span class="s2">"Thorin &amp; Co."</span> <span class="err">//</span> <span class="err">optional</span>
+<span class="p">}</span>
+</pre></div>
+
+<h5>
+<a name="post---create-a-donation-for-a-donor" class="anchor" href="#post---create-a-donation-for-a-donor"><span class="octicon octicon-link"></span></a>POST - Create a donation for a donor</h5>
+
+<ul>
+<li>URI: /donation</li>
+<li>BODY - donation object</li>
+<li>SUCCESS CODE - 201 created</li>
+<li>ERROR CODES
+
+<ul>
+<li>500 internal error</li>
+<li>400 malformed post body</li>
+<li>401 unauthorized</li>
+</ul>
+</li>
+</ul><p>Example</p>
+
+<pre><code>POST /donation
+Accepts: application/json
+Content-Type: application/json
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+</code></pre>
+
+<p>Body</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+  <span class="nt">"amount"</span>                    <span class="p">:</span>   <span class="mf">42.80</span><span class="p">,</span> <span class="err">//</span> <span class="err">amount</span> <span class="err">in</span> <span class="err">USD</span>
+  <span class="nt">"sponsorMatchingPercentage"</span> <span class="p">:</span>   <span class="mi">20</span><span class="p">,</span> <span class="err">//</span> <span class="err">optional</span>
+  <span class="nt">"nonProfitCampaignGuid"</span>     <span class="p">:</span>   <span class="s2">"8aec529c-dc93-4e5a-a02d-2965f16d327e"</span><span class="p">,</span> 
+  <span class="nt">"publisherCampaignGuid"</span>     <span class="p">:</span>   <span class="s2">"59e680df-df0a-42c3-969a-800d35ca5684"</span><span class="p">,</span>
+  <span class="nt">"sponsorCampaignGuid"</span>       <span class="p">:</span>   <span class="s2">"ca712410-8e11-46a5-872c-de8ba7744e42"</span><span class="p">,</span> <span class="err">//</span> <span class="err">optional</span>
+  <span class="nt">"publisherTransactionId"</span>    <span class="p">:</span>   <span class="s2">"42"</span><span class="p">,</span> <span class="err">//</span> <span class="err">optional</span> <span class="err">-</span> <span class="err">supplied</span> <span class="err">by</span> <span class="err">the</span> <span class="err">publisher</span>
+  <span class="nt">"donorAccountGuid"</span>          <span class="p">:</span> <span class="s2">"ca712410-8e11-46a5-872c-de8ba7744e432”</span>
+<span class="s2">  "</span><span class="err">donorGuid</span><span class="s2">"                 : "</span><span class="mf">59e680</span><span class="err">df-df</span><span class="mi">0</span><span class="err">a</span><span class="mi">-42</span><span class="err">c</span><span class="mi">3-969</span><span class="err">a</span><span class="mi">-800</span><span class="err">d</span><span class="mi">35</span><span class="err">ca</span><span class="mi">5684</span><span class="err">"</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Response Success</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+ <span class="nt">"guid"</span>                    <span class="p">:</span>   <span class="s2">"8aec529c-dc93-4e5a-a02d-2965f16d327e"</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Response Failure</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+ <span class="nt">"errors"</span>                    <span class="p">:</span>   <span class="p">{</span><span class="nt">"errors"</span> <span class="p">:</span> <span class="s2">"Error messages"</span><span class="p">}</span> <span class="err">//</span> <span class="err">human</span> <span class="err">readable</span> <span class="err">error</span> <span class="err">messages</span>
+<span class="p">}</span>
+</pre></div>
+
+<h5>
+<a name="delete---cancel-a-donation" class="anchor" href="#delete---cancel-a-donation"><span class="octicon octicon-link"></span></a>DELETE - Cancel a donation</h5>
+
+<p><strong><em>NOT YET IMPLEMENTED</em></strong></p>
+
+<ul>
+<li>URI: /donation/:guid-of-donation</li>
+<li>RETURNS - string that is the guid for the donation</li>
+<li>SUCCESS CODE - 201</li>
+<li>ERROR CODES
+
+<ul>
+<li>500 internal error</li>
+<li>401 unauthorized</li>
+</ul>
+</li>
+</ul><p>Example</p>
+
+<pre><code>DELETE /donation/59e680df-df0a-42c3-969a-800d35ca5684
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+</code></pre>
+
+<h5>
+<a name="put---not-implemented" class="anchor" href="#put---not-implemented"><span class="octicon octicon-link"></span></a>PUT - not implemented</h5>
+
+<p>Cancel the donation with DELETE and then POST to create new donation</p>
+
+<ul>
+<li>ERROR CODES - 405 - method not allowed</li>
+</ul><h3>
+<a name="donor-api-endpoint" class="anchor" href="#donor-api-endpoint"><span class="octicon octicon-link"></span></a>Donor API Endpoint</h3>
+
+<p>The donation api is used to find, create, get, or delete a donor.</p>
+
+<h4>
+<a name="headers-used-1" class="anchor" href="#headers-used-1"><span class="octicon octicon-link"></span></a>Headers Used</h4>
+
+<ul>
+<li>Content Type: application/json</li>
+<li>Accepts: application/json (where applicable)</li>
+<li>Date: Thu, 15 Sep 2012 00:51:48 GMT</li>
+<li>Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=</li>
+</ul><h4>
+<a name="http-verbs-1" class="anchor" href="#http-verbs-1"><span class="octicon octicon-link"></span></a>HTTP Verbs</h4>
+
+<h5>
+<a name="get---find-a-donor" class="anchor" href="#get---find-a-donor"><span class="octicon octicon-link"></span></a>GET - Find a donor</h5>
+
+<ul>
+<li>URI - /find-donor</li>
+<li>Param - email - the email address of the donor</li>
+<li>RETURNS - donor json object</li>
+<li>SUCCESS CODE - 200</li>
+<li>ERROR CODES - 404</li>
+</ul><p>Example</p>
+
+<pre><code>GET /find-donor?email=biblo@bagsend.com
+Accepts: application/json
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+</code></pre>
+
+<p>Response</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+   <span class="nt">"firstName"</span>         <span class="p">:</span> <span class="s2">"Frodo"</span><span class="p">,</span>
+   <span class="nt">"lastName"</span>          <span class="p">:</span> <span class="s2">"Baggins"</span><span class="p">,</span>
+   <span class="nt">"sharePersonalInfo"</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+   <span class="nt">"contactInfo"</span>       <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"cellPhoneNumber"</span>   <span class="p">:</span> <span class="s2">"3035511234"</span><span class="p">,</span>
+    <span class="nt">"workPhoneNumber"</span>   <span class="p">:</span> <span class="s2">"234134435"</span><span class="p">,</span>
+    <span class="nt">"homePhoneNumber"</span>   <span class="p">:</span> <span class="s2">"1213"</span><span class="p">,</span>
+    <span class="nt">"billingAddress1"</span>   <span class="p">:</span> <span class="s2">"123 Shire Blvd"</span><span class="p">,</span>
+    <span class="nt">"billingAddress2"</span>   <span class="p">:</span> <span class="s2">"Lower Hobbit Hole"</span><span class="p">,</span>
+    <span class="nt">"billingCity"</span>       <span class="p">:</span> <span class="s2">"The Shire"</span><span class="p">,</span>
+    <span class="nt">"billingState"</span>      <span class="p">:</span> <span class="s2">"CO"</span><span class="p">,</span>
+    <span class="nt">"billingZip"</span>        <span class="p">:</span> <span class="s2">"80125"</span><span class="p">,</span>
+    <span class="nt">"billingCountry"</span>    <span class="p">:</span> <span class="s2">"US"</span>
+   <span class="p">},</span>
+   <span class="nt">"email"</span>             <span class="p">:</span> <span class="s2">"bilbo.baggins@gmail.com"</span><span class="p">,</span>
+   <span class="nt">"accounts"</span>          <span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="err">active:</span> <span class="err">true,</span> <span class="err">guid:</span> <span class="err">59e680df-df0a-42c3-969a-800d35ca5684,</span> <span class="err">displayInfomation:</span> <span class="nt">"Visa ending in 4358"</span> <span class="p">}</span> <span class="p">],</span>
+   <span class="nt">"anonymous"</span>         <span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+
+<h5>
+<a name="get---get-a-donor-by-guid" class="anchor" href="#get---get-a-donor-by-guid"><span class="octicon octicon-link"></span></a>GET - Get a donor by guid</h5>
+
+<ul>
+<li>URI - /donor/{donor-guid}</li>
+<li>RETURNS - full json donor object.</li>
+<li>SUCCESS CODE - 200</li>
+<li>ERROR CODES - 404</li>
+</ul><p>Example</p>
+
+<pre><code>GET /donor/59e680df-df0a-42c3-969a-800d35ca5684
+Accepts: application/json
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+</code></pre>
+
+<p>Response</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+   <span class="nt">"firstName"</span>         <span class="p">:</span> <span class="s2">"Frodo"</span><span class="p">,</span>
+   <span class="nt">"lastName"</span>          <span class="p">:</span> <span class="s2">"Baggins"</span><span class="p">,</span>
+   <span class="nt">"sharePersonalInfo"</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+   <span class="nt">"contactInfo"</span>       <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"cellPhoneNumber"</span>   <span class="p">:</span> <span class="s2">"3035511234"</span><span class="p">,</span>
+    <span class="nt">"workPhoneNumber"</span>   <span class="p">:</span> <span class="s2">"234134435"</span><span class="p">,</span>
+    <span class="nt">"homePhoneNumber"</span>   <span class="p">:</span> <span class="s2">"1213"</span><span class="p">,</span>
+    <span class="nt">"billingAddress1"</span>   <span class="p">:</span> <span class="s2">"123 Shire Blvd"</span><span class="p">,</span>
+    <span class="nt">"billingAddress2"</span>   <span class="p">:</span> <span class="s2">"Lower Hobbit Hole"</span><span class="p">,</span>
+    <span class="nt">"billingCity"</span>       <span class="p">:</span> <span class="s2">"The Shire"</span><span class="p">,</span>
+    <span class="nt">"billingState"</span>      <span class="p">:</span> <span class="s2">"CO"</span><span class="p">,</span>
+    <span class="nt">"billingZip"</span>        <span class="p">:</span> <span class="s2">"80125"</span><span class="p">,</span>
+    <span class="nt">"billingCountry"</span>    <span class="p">:</span> <span class="s2">"US"</span>
+   <span class="p">},</span>
+   <span class="nt">"email"</span>             <span class="p">:</span> <span class="s2">"bilbo.baggins@gmail.com"</span><span class="p">,</span>
+   <span class="nt">"accounts"</span>          <span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="err">active:</span> <span class="err">true,</span> <span class="err">guid:</span> <span class="err">59e680df-df0a-42c3-969a-800d35ca5684,</span> <span class="err">displayInfomation:</span> <span class="nt">"Visa ending in 4358"</span> <span class="p">}</span> <span class="p">],</span>
+   <span class="nt">"anonymous"</span>         <span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+
+<h5>
+<a name="post---create-a-donor" class="anchor" href="#post---create-a-donor"><span class="octicon octicon-link"></span></a>POST - Create a donor</h5>
+
+<ul>
+<li>URI - /donor</li>
+<li>Payload - full json donor object.  Account creation is not allowed with-in the payload.</li>
+<li>SUCCESS CODE - 202</li>
+<li>ERROR CODES 
+
+<ul>
+<li>500 input validation error</li>
+<li>405 user already registered by that email address</li>
+</ul>
+</li>
+</ul><p>Example</p>
+
+<pre><code>POST /donor
+Accepts: application/json
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+</code></pre>
+
+<p>Body </p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+   <span class="nt">"firstName"</span>         <span class="p">:</span> <span class="s2">"Frodo"</span><span class="p">,</span>
+   <span class="nt">"lastName"</span>          <span class="p">:</span> <span class="s2">"Baggins"</span><span class="p">,</span>
+   <span class="nt">"billingAddress1"</span>   <span class="p">:</span> <span class="s2">"123 Shire Blvd"</span><span class="p">,</span>
+   <span class="nt">"billingAddress2"</span>   <span class="p">:</span> <span class="s2">"Lower Hobbit Hole"</span><span class="p">,</span>
+   <span class="nt">"city"</span>              <span class="p">:</span> <span class="s2">"The Shire"</span><span class="p">,</span>
+   <span class="nt">"state"</span>             <span class="p">:</span> <span class="s2">"CO"</span><span class="p">,</span>
+   <span class="nt">"zip"</span>               <span class="p">:</span> <span class="s2">"80125"</span><span class="p">,</span>
+   <span class="nt">"country"</span>           <span class="p">:</span> <span class="s2">"US"</span><span class="p">,</span>
+   <span class="nt">"cellPhoneNumber"</span>   <span class="p">:</span> <span class="s2">"3035511234"</span><span class="p">,</span>
+   <span class="nt">"workPhoneNumber"</span>   <span class="p">:</span> <span class="s2">"234134435"</span><span class="p">,</span>
+   <span class="nt">"homePhoneNumber"</span>   <span class="p">:</span> <span class="s2">"1213"</span><span class="p">,</span>
+   <span class="nt">"username"</span>          <span class="p">:</span> <span class="s2">"bilbo.baggins@gmail.com"</span><span class="p">,</span> <span class="err">*REQUIRED*</span>
+   <span class="nt">"screenName"</span>        <span class="p">:</span> <span class="s2">"bilbo.baggins"</span><span class="p">,</span> <span class="err">*REQUIRED*</span>
+   <span class="nt">"sharePersonalInfo"</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+   <span class="nt">"anonymous"</span>         <span class="p">:</span> <span class="kc">false</span>
+
+<span class="p">}</span>
+</pre></div>
+
+<p>Response</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span> <span class="nt">"guid"</span> <span class="p">:</span> <span class="s2">"8aec529c-dc93-4e5a-a02d-2965f16d327e"</span> <span class="p">}</span>
+</pre></div>
+
+<h5>
+<a name="put---update-a-donor" class="anchor" href="#put---update-a-donor"><span class="octicon octicon-link"></span></a>PUT - Update a donor</h5>
+
+<p><strong><em>NOT YET IMPLEMENTED</em></strong></p>
+
+<ul>
+<li>URI - /donor/{donor-guid}</li>
+<li>Payload - full json donor object.  Account updates are  not allowed with-in the payload.</li>
+<li>SUCCESS CODE - 200</li>
+<li>ERROR CODES 
+
+<ul>
+<li>500 input validation error</li>
+</ul>
+</li>
+</ul><p>Example</p>
+
+<pre><code>PUT /donor/8aec529c-dc93-4e5a-a02d-2965f16d327e
+Accepts: application/json
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+</code></pre>
+
+<p>Body </p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+   <span class="nt">"firstName"</span>         <span class="p">:</span> <span class="s2">"Frodo"</span><span class="p">,</span>
+   <span class="nt">"lastName"</span>          <span class="p">:</span> <span class="s2">"Baggins"</span><span class="p">,</span>
+   <span class="nt">"sharePersonalInfo"</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+   <span class="nt">"contactInfo"</span>       <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"billingAddress1"</span>   <span class="p">:</span> <span class="s2">"123 Shire Blvd"</span><span class="p">,</span>
+    <span class="nt">"billingAddress2"</span>   <span class="p">:</span> <span class="s2">"Lower Hobbit Hole"</span><span class="p">,</span>
+    <span class="nt">"billingCity"</span>       <span class="p">:</span> <span class="s2">"The Shire"</span><span class="p">,</span>
+    <span class="nt">"billingState"</span>      <span class="p">:</span> <span class="s2">"CO"</span><span class="p">,</span>
+    <span class="nt">"billingZip"</span>        <span class="p">:</span> <span class="s2">"80125"</span><span class="p">,</span>
+    <span class="nt">"billingCountry"</span>    <span class="p">:</span> <span class="s2">"US"</span><span class="p">,</span>
+    <span class="nt">"cellPhoneNumber"</span>   <span class="p">:</span> <span class="s2">"3035511234"</span><span class="p">,</span>
+    <span class="nt">"workPhoneNumber"</span>   <span class="p">:</span> <span class="s2">"234134435"</span><span class="p">,</span>
+    <span class="nt">"homePhoneNumber"</span>   <span class="p">:</span> <span class="s2">"1213"</span><span class="p">,</span>
+   <span class="p">},</span>
+   <span class="nt">"username"</span>             <span class="p">:</span> <span class="s2">"bilbo.baggins@gmail.com"</span><span class="p">,</span>
+   <span class="nt">"sharePersonalInfo"</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+   <span class="nt">"anonymous"</span>         <span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+
+<h5>
+<a name="delete" class="anchor" href="#delete"><span class="octicon octicon-link"></span></a>DELETE</h5>
+
+<p>Not supported</p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="account-api-endpoint" class="anchor" href="#account-api-endpoint"><span class="octicon octicon-link"></span></a>Account API Endpoint</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>The account api is used to create or update donor accounts. The donor api above provides the only 'get' information for accounts. </p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<h4>
+<a name="headers-used-2" class="anchor" href="#headers-used-2"><span class="octicon octicon-link"></span></a>Headers Used</h4>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<ul>
+<li>Content Type: application/json</li>
+<li>Accepts: application/json (where applicable)</li>
+<li>Date: Thu, 15 Sep 2012 00:51:48 GMT</li>
+<li>Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=</li>
+</ul><h4>
+<a name="http-verbs-2" class="anchor" href="#http-verbs-2"><span class="octicon octicon-link"></span></a>HTTP Verbs</h4>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<h5>
+<a name="get" class="anchor" href="#get"><span class="octicon octicon-link"></span></a>GET</h5>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>Not supported, accessible through Donor API</p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<h5>
+<a name="post---create-a-donor-account" class="anchor" href="#post---create-a-donor-account"><span class="octicon octicon-link"></span></a>POST - Create a donor account</h5>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
+<ul>
+<li>URI - /account</li>
+<li>Payload - full json account object - cc information if a cc account, otherwise bank account information</li>
+<li>SUCCESS CODE - 202</li>
+<li>ERROR CODES
 
-        <footer>
-          Igivefirst-api-php is maintained by <a href="https://github.com/iGivefirst">iGivefirst</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+<ul>
+<li>500 input validation error</li>
+</ul>
+</li>
+</ul><p>Example</p>
 
-        
-      </div>
+<pre><code>POST /account
+Accepts: application/json
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+</code></pre>
+
+<p>Body </p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+   <span class="nt">"donorGuid"</span>         <span class="p">:</span> <span class="s2">"59e680df-df0a-42c3-969a-800d35ca5684"</span><span class="p">,</span>
+   <span class="nt">"paymentMethod"</span>     <span class="p">:</span> <span class="s2">"creditCard"</span><span class="p">,</span> <span class="err">//</span> <span class="err">creditCard</span> <span class="err">or</span> <span class="err">ach</span> <span class="err">allowed</span>
+   <span class="nt">"creditCardNumber"</span>  <span class="p">:</span> <span class="s2">"555555555555"</span><span class="p">,</span>
+   <span class="nt">"cwCode"</span>            <span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+   <span class="nt">"expirationMonth"</span>   <span class="p">:</span> <span class="s2">"02"</span><span class="p">,</span>
+   <span class="nt">"expirationYear"</span>    <span class="p">:</span> <span class="mi">2023</span><span class="p">,</span>
+   <span class="nt">"accountNumber"</span>     <span class="p">:</span> <span class="mi">4385589350</span><span class="p">,</span>
+   <span class="nt">"routingNumber"</span>     <span class="p">:</span> <span class="mi">1234</span><span class="p">,</span> 
+   <span class="nt">"accountHolderName"</span> <span class="p">:</span> <span class="s2">"Biblo Baggins"</span><span class="p">,</span>
+   <span class="nt">"contactInfo"</span>       <span class="p">:</span> <span class="p">{</span>
+     <span class="nt">"billingAddress1"</span>   <span class="p">:</span> <span class="s2">"123 Shire Blvd"</span><span class="p">,</span>
+     <span class="nt">"billingAddress2"</span>   <span class="p">:</span> <span class="s2">"Lower Hobbit Hole"</span><span class="p">,</span>
+     <span class="nt">"billingCity"</span>       <span class="p">:</span> <span class="s2">"The Shire"</span><span class="p">,</span>
+     <span class="nt">"billingState"</span>      <span class="p">:</span> <span class="s2">"CO"</span><span class="p">,</span>
+     <span class="nt">"billingZip"</span>        <span class="p">:</span> <span class="s2">"80125"</span><span class="p">,</span>
+     <span class="nt">"billingCountry"</span>    <span class="p">:</span> <span class="s2">"US"</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Response</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span> <span class="nt">"guid"</span> <span class="p">:</span> <span class="s2">"8aec529c-dc93-4e5a-a02d-2965f16d327e"</span> <span class="p">}</span>
+</pre></div>
+
+<h5>
+<a name="put---update-an-account" class="anchor" href="#put---update-an-account"><span class="octicon octicon-link"></span></a>PUT - Update an account</h5>
+
+<ul>
+<li>URI - /account/{account-guid}</li>
+<li>Payload - full json account object</li>
+<li>SUCCESS CODE - 200</li>
+<li>ERROR CODES
+
+<ul>
+<li>500 input validation error</li>
+</ul>
+</li>
+</ul><p>Example</p>
+
+<pre><code>PUT /account/59e680df-df0a-42c3-969a-800d35ca5684
+Accepts: application/json
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+</code></pre>
+
+<p>Body </p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+   <span class="nt">"donorGuid"</span>         <span class="p">:</span>  <span class="s2">"59e680df-df0a-42c3-969a-800d35ca5684"</span><span class="p">,</span>
+   <span class="nt">"paymentMethod"</span>     <span class="p">:</span> <span class="s2">"cc"</span><span class="p">,</span> <span class="err">//</span> <span class="err">cc</span> <span class="err">or</span> <span class="err">ach</span> <span class="err">allowed</span>
+   <span class="nt">"creditCardNumber"</span>  <span class="p">:</span> <span class="s2">"555555555555"</span><span class="p">,</span>
+   <span class="nt">"cwCode"</span>            <span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+   <span class="nt">"expirationMonth"</span>   <span class="p">:</span> <span class="mi">02</span><span class="p">,</span>
+   <span class="nt">"expirationYear"</span>    <span class="p">:</span> <span class="mi">2023</span><span class="p">,</span>
+   <span class="nt">"accountNumber"</span>     <span class="p">:</span> <span class="mi">4385589350</span><span class="p">,</span>
+   <span class="nt">"routingNumber"</span>     <span class="p">:</span> <span class="mi">1234</span><span class="p">,</span> 
+   <span class="nt">"accountHolderName"</span> <span class="p">:</span> <span class="s2">"Biblo Baggins"</span><span class="p">,</span>
+   <span class="nt">"paymentMethod"</span>       <span class="p">:</span> <span class="s2">"ach"</span><span class="p">,</span> <span class="err">//</span> <span class="err">ach</span> <span class="err">or</span> <span class="err">creditCard</span>
+   <span class="nt">"contactInfo"</span>       <span class="p">:</span> <span class="p">{</span>
+     <span class="nt">"billingAddress1"</span>   <span class="p">:</span> <span class="s2">"123 Shire Blvd"</span><span class="p">,</span>
+     <span class="nt">"billingAddress2"</span>   <span class="p">:</span> <span class="s2">"Lower Hobbit Hole"</span><span class="p">,</span>
+     <span class="nt">"billingCity"</span>       <span class="p">:</span> <span class="s2">"The Shire"</span><span class="p">,</span>
+     <span class="nt">"billingState"</span>      <span class="p">:</span> <span class="s2">"CO"</span><span class="p">,</span>
+     <span class="nt">"billingZip"</span>        <span class="p">:</span> <span class="s2">"80125"</span><span class="p">,</span>
+     <span class="nt">"billingCountry"</span>    <span class="p">:</span> <span class="s2">"US"</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Response</p>
+
+<p>HTTP 200</p>
+
+<h5>
+<a name="delete---disable-an-account" class="anchor" href="#delete---disable-an-account"><span class="octicon octicon-link"></span></a>DELETE - Disable an account</h5>
+
+<ul>
+<li>URI - /account/{account-guid}</li>
+<li>SUCCESS CODE - 202</li>
+<li>ERROR CODES
+
+<ul>
+<li>500 input validation error</li>
+</ul>
+</li>
+</ul><p>Example</p>
+
+<pre><code>DELETE /account/59e680df-df0a-42c3-969a-800d35ca5684
+Accepts: application/json
+Date: Tue, 27 Mar 2007 21:15:45 +0000
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+</code></pre>
+
+<p>Response</p>
+
+<p>HTTP 202</p>
+      </section>
     </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">iGivefirst API - PHP SDK maintained by <a href="https://github.com/iGivefirst">iGivefirst</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
