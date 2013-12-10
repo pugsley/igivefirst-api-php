@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta name="robots" content="noindex" />
+
+	<title>File iGivefirst/Exceptions.php</title>
+
+	<script type="text/javascript" src="resources/combined.js?3525304716"></script>
+	<script type="text/javascript" src="elementlist.js?3027202403"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Account.html">Account</a></li>
+				<li><a href="class-AccountContactInfo.html">AccountContactInfo</a></li>
+				<li><a href="class-AccountInfo.html">AccountInfo</a></li>
+				<li><a href="class-Donation.html">Donation</a></li>
+				<li><a href="class-DonationInfo.html">DonationInfo</a></li>
+				<li><a href="class-Donor.html">Donor</a></li>
+				<li><a href="class-DonorInfo.html">DonorInfo</a></li>
+				<li><a href="class-iGivefirst.html">iGivefirst</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-iGivefirst_AccountInformationIncomplete.html">iGivefirst_AccountInformationIncomplete</a></li>
+				<li><a href="class-iGivefirst_AccountNotCreated.html">iGivefirst_AccountNotCreated</a></li>
+				<li><a href="class-iGivefirst_AccountNotUpdated.html">iGivefirst_AccountNotUpdated</a></li>
+				<li><a href="class-iGivefirst_AuthenticationError.html">iGivefirst_AuthenticationError</a></li>
+				<li><a href="class-iGivefirst_DonationInformationIncomplete.html">iGivefirst_DonationInformationIncomplete</a></li>
+				<li><a href="class-iGivefirst_DonationNotCreated.html">iGivefirst_DonationNotCreated</a></li>
+				<li><a href="class-iGivefirst_DonorAlreadyExists.html">iGivefirst_DonorAlreadyExists</a></li>
+				<li><a href="class-iGivefirst_DonorInformationIncomplete.html">iGivefirst_DonorInformationIncomplete</a></li>
+				<li><a href="class-iGivefirst_DonorNotCreated.html">iGivefirst_DonorNotCreated</a></li>
+				<li class="active"><a href="class-iGivefirst_Error.html">iGivefirst_Error</a></li>
+				<li><a href="class-iGivefirst_HttpError.html">iGivefirst_HttpError</a></li>
+				<li><a href="class-iGivefirst_ObjectAlreadyExists.html">iGivefirst_ObjectAlreadyExists</a></li>
+				<li><a href="class-iGivefirst_ObjectNotFound.html">iGivefirst_ObjectNotFound</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+			</li>
+			<li>
+				<a href="class-iGivefirst_Error.html" title="Summary of iGivefirst_Error"><span>Class</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2: </a>
+</span><span id="3" class="l"><a class="l" href="#3"> 3: </a><span class="php-keyword1">class</span> <a id="iGivefirst_Error" href="#iGivefirst_Error">iGivefirst_Error</a> <span class="php-keyword1">extends</span> Exception {}
+</span><span id="4" class="l"><a class="l" href="#4"> 4: </a><span class="php-keyword1">class</span> <a id="iGivefirst_HttpError" href="#iGivefirst_HttpError">iGivefirst_HttpError</a> <span class="php-keyword1">extends</span> Exception {}
+</span><span id="5" class="l"><a class="l" href="#5"> 5: </a>
+</span><span id="6" class="l"><a class="l" href="#6"> 6: </a><span class="php-comment">/**
+</span></span><span id="7" class="l"><a class="l" href="#7"> 7: </a><span class="php-comment"> * An authentication error occurred as a result of an invalid api key, secret, or un-whitelisted IP
+</span></span><span id="8" class="l"><a class="l" href="#8"> 8: </a><span class="php-comment"> */</span>
+</span><span id="9" class="l"><a class="l" href="#9"> 9: </a><span class="php-keyword1">class</span> <a id="iGivefirst_AuthenticationError" href="#iGivefirst_AuthenticationError">iGivefirst_AuthenticationError</a> <span class="php-keyword1">extends</span> iGivefirst_HttpError {};
+</span><span id="10" class="l"><a class="l" href="#10">10: </a>
+</span><span id="11" class="l"><a class="l" href="#11">11: </a><span class="php-comment">/**
+</span></span><span id="12" class="l"><a class="l" href="#12">12: </a><span class="php-comment"> * The object requested was not found
+</span></span><span id="13" class="l"><a class="l" href="#13">13: </a><span class="php-comment"> */</span>
+</span><span id="14" class="l"><a class="l" href="#14">14: </a><span class="php-keyword1">class</span> <a id="iGivefirst_ObjectNotFound" href="#iGivefirst_ObjectNotFound">iGivefirst_ObjectNotFound</a> <span class="php-keyword1">extends</span> iGivefirst_HttpError {};
+</span><span id="15" class="l"><a class="l" href="#15">15: </a>
+</span><span id="16" class="l"><a class="l" href="#16">16: </a><span class="php-comment">/**
+</span></span><span id="17" class="l"><a class="l" href="#17">17: </a><span class="php-comment"> * The object sent already exists
+</span></span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-comment"> */</span>
+</span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-keyword1">class</span> <a id="iGivefirst_ObjectAlreadyExists" href="#iGivefirst_ObjectAlreadyExists">iGivefirst_ObjectAlreadyExists</a> <span class="php-keyword1">extends</span> iGivefirst_HttpError {};
+</span><span id="20" class="l"><a class="l" href="#20">20: </a>
+</span><span id="21" class="l"><a class="l" href="#21">21: </a><span class="php-comment">/**
+</span></span><span id="22" class="l"><a class="l" href="#22">22: </a><span class="php-comment"> * Donor information was not complete enough
+</span></span><span id="23" class="l"><a class="l" href="#23">23: </a><span class="php-comment"> */</span>
+</span><span id="24" class="l"><a class="l" href="#24">24: </a><span class="php-keyword1">class</span> <a id="iGivefirst_DonorInformationIncomplete" href="#iGivefirst_DonorInformationIncomplete">iGivefirst_DonorInformationIncomplete</a> <span class="php-keyword1">extends</span> iGivefirst_Error {};
+</span><span id="25" class="l"><a class="l" href="#25">25: </a>
+</span><span id="26" class="l"><a class="l" href="#26">26: </a><span class="php-comment">/**
+</span></span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-comment"> * Donor could not be created because of invalid parameters
+</span></span><span id="28" class="l"><a class="l" href="#28">28: </a><span class="php-comment"> */</span>
+</span><span id="29" class="l"><a class="l" href="#29">29: </a><span class="php-keyword1">class</span> <a id="iGivefirst_DonorNotCreated" href="#iGivefirst_DonorNotCreated">iGivefirst_DonorNotCreated</a> <span class="php-keyword1">extends</span> iGivefirst_Error {};
+</span><span id="30" class="l"><a class="l" href="#30">30: </a>
+</span><span id="31" class="l"><a class="l" href="#31">31: </a><span class="php-comment">/**
+</span></span><span id="32" class="l"><a class="l" href="#32">32: </a><span class="php-comment"> * Donor could not be created because it already exists
+</span></span><span id="33" class="l"><a class="l" href="#33">33: </a><span class="php-comment"> */</span>
+</span><span id="34" class="l"><a class="l" href="#34">34: </a><span class="php-keyword1">class</span> <a id="iGivefirst_DonorAlreadyExists" href="#iGivefirst_DonorAlreadyExists">iGivefirst_DonorAlreadyExists</a> <span class="php-keyword1">extends</span> iGivefirst_Error {};
+</span><span id="35" class="l"><a class="l" href="#35">35: </a>
+</span><span id="36" class="l"><a class="l" href="#36">36: </a><span class="php-comment">/**
+</span></span><span id="37" class="l"><a class="l" href="#37">37: </a><span class="php-comment"> * Account information was not complete enough
+</span></span><span id="38" class="l"><a class="l" href="#38">38: </a><span class="php-comment"> */</span>
+</span><span id="39" class="l"><a class="l" href="#39">39: </a><span class="php-keyword1">class</span> <a id="iGivefirst_AccountInformationIncomplete" href="#iGivefirst_AccountInformationIncomplete">iGivefirst_AccountInformationIncomplete</a> <span class="php-keyword1">extends</span> iGivefirst_Error {};
+</span><span id="40" class="l"><a class="l" href="#40">40: </a>
+</span><span id="41" class="l"><a class="l" href="#41">41: </a><span class="php-comment">/**
+</span></span><span id="42" class="l"><a class="l" href="#42">42: </a><span class="php-comment"> * Account could not be created because of invalid parameters
+</span></span><span id="43" class="l"><a class="l" href="#43">43: </a><span class="php-comment"> */</span>
+</span><span id="44" class="l"><a class="l" href="#44">44: </a><span class="php-keyword1">class</span> <a id="iGivefirst_AccountNotCreated" href="#iGivefirst_AccountNotCreated">iGivefirst_AccountNotCreated</a> <span class="php-keyword1">extends</span> iGivefirst_Error {};
+</span><span id="45" class="l"><a class="l" href="#45">45: </a>
+</span><span id="46" class="l"><a class="l" href="#46">46: </a><span class="php-comment">/**
+</span></span><span id="47" class="l"><a class="l" href="#47">47: </a><span class="php-comment"> * Account could not be updated because of invalid parameters
+</span></span><span id="48" class="l"><a class="l" href="#48">48: </a><span class="php-comment"> */</span>
+</span><span id="49" class="l"><a class="l" href="#49">49: </a><span class="php-keyword1">class</span> <a id="iGivefirst_AccountNotUpdated" href="#iGivefirst_AccountNotUpdated">iGivefirst_AccountNotUpdated</a> <span class="php-keyword1">extends</span> iGivefirst_Error {};
+</span><span id="50" class="l"><a class="l" href="#50">50: </a>
+</span><span id="51" class="l"><a class="l" href="#51">51: </a><span class="php-comment">/**
+</span></span><span id="52" class="l"><a class="l" href="#52">52: </a><span class="php-comment"> * Donation information was not complete enough
+</span></span><span id="53" class="l"><a class="l" href="#53">53: </a><span class="php-comment"> */</span>
+</span><span id="54" class="l"><a class="l" href="#54">54: </a><span class="php-keyword1">class</span> <a id="iGivefirst_DonationInformationIncomplete" href="#iGivefirst_DonationInformationIncomplete">iGivefirst_DonationInformationIncomplete</a> <span class="php-keyword1">extends</span> iGivefirst_Error {};
+</span><span id="55" class="l"><a class="l" href="#55">55: </a>
+</span><span id="56" class="l"><a class="l" href="#56">56: </a><span class="php-comment">/**
+</span></span><span id="57" class="l"><a class="l" href="#57">57: </a><span class="php-comment"> * Donation could not be created because of invalid parameters
+</span></span><span id="58" class="l"><a class="l" href="#58">58: </a><span class="php-comment"> */</span>
+</span><span id="59" class="l"><a class="l" href="#59">59: </a><span class="php-keyword1">class</span> <a id="iGivefirst_DonationNotCreated" href="#iGivefirst_DonationNotCreated">iGivefirst_DonationNotCreated</a> <span class="php-keyword1">extends</span> iGivefirst_Error {};
+</span><span id="60" class="l"><a class="l" href="#60">60: </a>
+</span><span id="61" class="l"><a class="l" href="#61">61: </a><span class="xlang">?&gt;</span>
+</span><span id="62" class="l"><a class="l" href="#62">62: </a></span></code></pre>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

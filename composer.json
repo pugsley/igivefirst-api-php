@@ -1,0 +1,27 @@
+{
+    "name": "igivefirst/igf-sdk-php",
+    "homepage": "http://igivefirst.github.io/igivefirst-api-php/",
+    "description": "PHP SDK for the iGivefirst Donation API",
+    "keywords": ["api"],
+    "type": "library",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "iGivefirst",
+            "homepage": "http://www.igivefirst.com"
+        }
+    ],
+    "support": {
+        "email": "support@igivefirst.com"
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "guzzle/guzzle": "~3.7.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "iGivefirst": "src/"
+        }
+    }
+}

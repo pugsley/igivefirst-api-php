@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class AccountInfo</title>
+
+	<script type="text/javascript" src="resources/combined.js?3525304716"></script>
+	<script type="text/javascript" src="elementlist.js?3027202403"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Account.html">Account</a></li>
+				<li><a href="class-AccountContactInfo.html">AccountContactInfo</a></li>
+				<li class="active"><a href="class-AccountInfo.html">AccountInfo</a></li>
+				<li><a href="class-Donation.html">Donation</a></li>
+				<li><a href="class-DonationInfo.html">DonationInfo</a></li>
+				<li><a href="class-Donor.html">Donor</a></li>
+				<li><a href="class-DonorInfo.html">DonorInfo</a></li>
+				<li><a href="class-iGivefirst.html">iGivefirst</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-iGivefirst_AccountInformationIncomplete.html">iGivefirst_AccountInformationIncomplete</a></li>
+				<li><a href="class-iGivefirst_AccountNotCreated.html">iGivefirst_AccountNotCreated</a></li>
+				<li><a href="class-iGivefirst_AccountNotUpdated.html">iGivefirst_AccountNotUpdated</a></li>
+				<li><a href="class-iGivefirst_AuthenticationError.html">iGivefirst_AuthenticationError</a></li>
+				<li><a href="class-iGivefirst_DonationInformationIncomplete.html">iGivefirst_DonationInformationIncomplete</a></li>
+				<li><a href="class-iGivefirst_DonationNotCreated.html">iGivefirst_DonationNotCreated</a></li>
+				<li><a href="class-iGivefirst_DonorAlreadyExists.html">iGivefirst_DonorAlreadyExists</a></li>
+				<li><a href="class-iGivefirst_DonorInformationIncomplete.html">iGivefirst_DonorInformationIncomplete</a></li>
+				<li><a href="class-iGivefirst_DonorNotCreated.html">iGivefirst_DonorNotCreated</a></li>
+				<li><a href="class-iGivefirst_Error.html">iGivefirst_Error</a></li>
+				<li><a href="class-iGivefirst_HttpError.html">iGivefirst_HttpError</a></li>
+				<li><a href="class-iGivefirst_ObjectAlreadyExists.html">iGivefirst_ObjectAlreadyExists</a></li>
+				<li><a href="class-iGivefirst_ObjectNotFound.html">iGivefirst_ObjectNotFound</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AccountInfo</h1>
+
+
+	<div class="description">
+	
+<p>Holds Account information for POST and PUT calls</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		
+
+		<b>Located at</b> <a href="source-class-AccountInfo.html#150-236" title="Go to source code">iGivefirst/Common.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-AccountInfo.html#166-176" title="Go to source code">__construct</a>( <span>mixed <var>$properties</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Construct an AccountInfo object with a given set of properties Required
+properties are donorGuid, paymentMethod, and either creditCardNumber or
+accountNumber</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Construct an AccountInfo object with a given set of properties Required
+properties are donorGuid, paymentMethod, and either creditCardNumber or
+accountNumber</p>
+
+
+
+
+
+
+				<h4>Params</h4>
+				<div class="list">
+						Array $properties optionally takes a hash of account and contact information<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setDonorInformation" id="_setDonorInformation">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDonorInformation">#</a>
+		<code><a href="source-class-AccountInfo.html#178-187" title="Go to source code">setDonorInformation</a>( <span>mixed <var>$donorGuid</var></span>, <span>mixed <var>$contactInfo</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the donor information for this AccountInfo and any contactInfo
+supplied</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the donor information for this AccountInfo and any contactInfo
+supplied</p>
+
+
+
+
+
+
+				<h4>Params</h4>
+				<div class="list">
+						string $donorGuid guid of an existing donor<br />
+						Array $contactInfo billing information for this account<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCreditCard" id="_setCreditCard">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCreditCard">#</a>
+		<code><a href="source-class-AccountInfo.html#189-203" title="Go to source code">setCreditCard</a>( <span>mixed <var>$ccnum</var></span>, <span>mixed <var>$cwcode</var></span>, <span>mixed <var>$expirationMonth</var></span>, <span>mixed <var>$expirationYear</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set this AccountInfo object to point to a credit card</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set this AccountInfo object to point to a credit card</p>
+
+
+
+
+
+
+				<h4>Params</h4>
+				<div class="list">
+						string $ccnum credit card number<br />
+						string $cwcode CW code<br />
+						string $expirationMonth expiration month<br />
+						string $expirationYear expiration year<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setACH" id="_setACH">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setACH">#</a>
+		<code><a href="source-class-AccountInfo.html#205-217" title="Go to source code">setACH</a>( <span>mixed <var>$account</var></span>, <span>mixed <var>$routing</var></span>, <span>mixed <var>$accountName</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set this AccountInfo object to point to ACH</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set this AccountInfo object to point to ACH</p>
+
+
+
+
+
+
+				<h4>Params</h4>
+				<div class="list">
+						string $account account number<br />
+						string $routing routing number<br />
+						string $accountName account holder name<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bind" id="_bind">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bind">#</a>
+		<code><a href="source-class-AccountInfo.html#219-228" title="Go to source code">bind</a>( <span>mixed <var>$properties</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Merge in properties from a given array</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Merge in properties from a given array</p>
+
+
+
+
+
+
+				<h4>Params</h4>
+				<div class="list">
+						Array $properties array to merge properties in from<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="validate" id="_validate">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validate">#</a>
+		<code><a href="source-class-AccountInfo.html#230-235" title="Go to source code">validate</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="donorGuid" id="$donorGuid">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#154" title="Go to source code"><var>$donorGuid</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$donorGuid" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="paymentMethod" id="$paymentMethod">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#155" title="Go to source code"><var>$paymentMethod</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$paymentMethod" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="creditCardNumber" id="$creditCardNumber">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#156" title="Go to source code"><var>$creditCardNumber</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$creditCardNumber" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="cwCode" id="$cwCode">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#157" title="Go to source code"><var>$cwCode</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$cwCode" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="expirationMonth" id="$expirationMonth">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#158" title="Go to source code"><var>$expirationMonth</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$expirationMonth" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="expirationYear" id="$expirationYear">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#159" title="Go to source code"><var>$expirationYear</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$expirationYear" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="accountNumber" id="$accountNumber">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#160" title="Go to source code"><var>$accountNumber</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$accountNumber" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="routingNumber" id="$routingNumber">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#161" title="Go to source code"><var>$routingNumber</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$routingNumber" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="accountHolderName" id="$accountHolderName">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#162" title="Go to source code"><var>$accountHolderName</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$accountHolderName" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="contactInfo" id="$contactInfo">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AccountInfo.html#164" title="Go to source code"><var>$contactInfo</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$contactInfo" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

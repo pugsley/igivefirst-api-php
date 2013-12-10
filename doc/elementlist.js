@@ -1,0 +1,3 @@
+
+var ApiGen = ApiGen || {};
+ApiGen.elements = [["c","Account"],["c","AccountContactInfo"],["c","AccountInfo"],["c","Donation"],["c","DonationInfo"],["c","Donor"],["c","DonorInfo"],["c","Exception"],["c","iGivefirst"],["c","iGivefirst_AccountInformationIncomplete"],["c","iGivefirst_AccountNotCreated"],["c","iGivefirst_AccountNotUpdated"],["c","iGivefirst_AuthenticationError"],["c","iGivefirst_DonationInformationIncomplete"],["c","iGivefirst_DonationNotCreated"],["c","iGivefirst_DonorAlreadyExists"],["c","iGivefirst_DonorInformationIncomplete"],["c","iGivefirst_DonorNotCreated"],["c","iGivefirst_Error"],["c","iGivefirst_HttpError"],["c","iGivefirst_ObjectAlreadyExists"],["c","iGivefirst_ObjectNotFound"]];
