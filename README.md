@@ -179,7 +179,7 @@ Example
 GET /donation/59e680df-df0a-42c3-969a-800d35ca5684
 Accepts: application/json
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 Response
@@ -188,7 +188,7 @@ Response
 {
   "guid"                      :   "59e680df-df0a-42c3-969a-800d35ca5684",
   "amount"                    :   42.80,
-  "sponsorMatchingPercentage" :   20, //optional
+  "sponsorMatchingPercentage" :   20, // optional
   "nonProfitCampaignGuid"     :   "8aec529c-dc93-4e5a-a02d-2965f16d327e",
   "publisherCampaignGuid"     :   "59e680df-df0a-42c3-969a-800d35ca5684",
   "sponsorCampaignGuid"       :   "ca712410-8e11-46a5-872c-de8ba7744e42", // optional
@@ -219,7 +219,7 @@ POST /donation
 Accepts: application/json
 Content-Type: application/json
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 Body
@@ -269,7 +269,7 @@ Example
 ```
 DELETE /donation/59e680df-df0a-42c3-969a-800d35ca5684
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 ##### PUT - not implemented
@@ -301,7 +301,7 @@ Example
 GET /find-donor?email=biblo@bagsend.com
 Accepts: application/json
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 Response
@@ -341,7 +341,7 @@ Example
 GET /donor/59e680df-df0a-42c3-969a-800d35ca5684
 Accepts: application/json
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 Response
@@ -382,7 +382,7 @@ Example
 POST /donor
 Accepts: application/json
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 Body 
@@ -430,7 +430,7 @@ Example
 PUT /donor/8aec529c-dc93-4e5a-a02d-2965f16d327e
 Accepts: application/json
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 Body 
@@ -487,7 +487,7 @@ Example
 POST /account
 Accepts: application/json
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 Body 
@@ -533,7 +533,7 @@ Example
 PUT /account/59e680df-df0a-42c3-969a-800d35ca5684
 Accepts: application/json
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 Body 
@@ -577,7 +577,7 @@ Example
 DELETE /account/59e680df-df0a-42c3-969a-800d35ca5684
 Accepts: application/json
 Date: Tue, 27 Mar 2007 21:15:45 +0000
-Authorization: IGF\_HMAC\_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
+Authorization: IGF_HMAC_SHA1 59e680df-df0a-42c3-969a-800d35ca5684:frJIUN8DYpKDtOLCwo//yllqDzg=
 ```
 
 Response
