@@ -20,13 +20,13 @@ class iGivefirst {
 	public $account;
 	// Donation interface
 	public $donation;
-	
+
 	public $client;
 	private $apikey, $apisecret;
 
 	private $url_root = 'https://api.igivefirst.com';
 	private $url_root_sandbox = 'https://api.igivefirst.mobi';
-	
+
 	/**
 	 * Construct the interface class
 	 * @param string $apikey Publisher API key
@@ -36,20 +36,27 @@ class iGivefirst {
 	public function __construct($apikey, $apisecret, $sandbox=true) {
 		$this->apikey = $apikey;
 		$this->apisecret = $apisecret;
-		
-		$this->client = new Client($sandbox?$this->url_root_sandbox:$this->url_root);
+
+        // Disable SSL check for now so we can proxy via an ELB
+		$this->client = new Client($sandbox?$this->url_root_sandbox:$this->url_root,[
+            'ssl.certificate_authority' => false
+        ]);
 		$this->client->setUserAgent('iGivefirst-SDK-PHP/1.0.0');
-		
+
 		$this->client->getEventDispatcher()->addListener('request.before_send', function (Event $event) {
 			$this->signRequest($event['request']);
 		}, -1);
-		
+
 		$this->donor = new Donor($this);
 		$this->account = new Account($this);
 		$this->donation = new Donation($this);
 	}
-	
+
 	public function execute($request) {
+
+        // Inject header so SSL works via ELB
+        $request->setHeader('Host', 'api.igivefirst.com');
+
 		try {
 			return $request->send();
 		}
@@ -78,14 +85,14 @@ class iGivefirst {
 			throw new iGivefirst_HttpError($r->getStatusCode());
 		}
 	}
-	
+
 	private function signRequest($request) {
 		$date = gmdate("D, d M Y H:i:s O", time());
 		$method = $request->getMethod();
 		$body = '';
 		$content_type = $request->getHeader('Content-Type');
 		$u = $request->getUrl(true)->normalizePath()->getPath();
-		
+
 		if ($request instanceof EntityEnclosingRequest) {
 			$request_body = $request->getBody();
 			if ($request_body)
@@ -94,7 +101,7 @@ class iGivefirst {
 
 		$hmac = base64_encode(hash_hmac('sha1', "$method\n$body\n$content_type\n$date\n$u", $this->apisecret, true));
 		$auth = "{$this->apikey}:$hmac";
-		
+
 		$request->setHeader('Date', $date);
 		$request->setHeader('Authorization', 'IGF_HMAC_SHA1 ' . $auth);
 	}
